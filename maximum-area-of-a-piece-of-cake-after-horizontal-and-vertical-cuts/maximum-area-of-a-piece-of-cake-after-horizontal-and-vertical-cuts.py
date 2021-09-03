@@ -1,30 +1,23 @@
-class Solution(object):
-    def maxArea(self, h, w, horizontalCuts, verticalCuts):
-        """
-        :type h: int
-        :type w: int
-        :type horizontalCuts: List[int]
-        :type verticalCuts: List[int]
-        :rtype: int
-        """
-        horizontalCuts.append(h)
+class Solution:
+    def maxArea(self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]) -> int:
         horizontalCuts.append(0)
+        horizontalCuts.append(h)
         horizontalCuts.sort()
         
-        verticalCuts.append(w)
         verticalCuts.append(0)
+        verticalCuts.append(w)
         verticalCuts.sort()
         
-        maxHeight = 0
+        maxHoriz = 0
         for i in range(len(horizontalCuts) - 1):
-            height = horizontalCuts[i + 1] - horizontalCuts[i]
-            if height > maxHeight:
-                maxHeight = height
+            horiz = horizontalCuts[i + 1] - horizontalCuts[i]
+            if horiz > maxHoriz:
+                maxHoriz = horiz
         
-        maxWidth = 0
+        maxVert = 0
         for i in range(len(verticalCuts) - 1):
-            width = verticalCuts[i + 1] - verticalCuts[i]
-            if width > maxWidth:
-                maxWidth = width
+            vert = verticalCuts[i + 1] - verticalCuts[i]
+            if vert > maxVert:
+                maxVert = vert
                 
-        return (maxHeight * maxWidth) % (10**9 + 7)
+        return (maxHoriz * maxVert) % (10 ** 9 + 7)
