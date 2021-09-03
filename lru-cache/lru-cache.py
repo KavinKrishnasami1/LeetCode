@@ -5,11 +5,11 @@ class LRUCache:
         self.dict = collections.OrderedDict()
 
     def get(self, key: int) -> int:
-        if key not in self.dict:
+        if key in self.dict:
+            self.dict.move_to_end(key, last = False)
+            return self.dict[key]
+        else:
             return -1
-        val = self.dict[key]
-        self.dict.move_to_end(key, last = False)
-        return val
 
     def put(self, key: int, value: int) -> None:
         self.dict[key] = value
