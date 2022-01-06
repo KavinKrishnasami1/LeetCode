@@ -12,9 +12,7 @@ class Solution:
         def helper(node):
             if not node:
                 return
-            node.left, node.right = node.right, node.left
-            helper(node.left)
-            helper(node.right)
-            
+            node.left, node.right = helper(node.right), helper(node.left)
+            return node
         helper(root)
         return root
