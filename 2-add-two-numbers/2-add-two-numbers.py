@@ -8,7 +8,8 @@ class Solution:
         c1 = l1
         c2 = l2
         carry = 0
-        l = []
+        dummy = ListNode()
+        curr = dummy
         while c1 or c2:
             if c1 and c2:
                 n = c1.val + c2.val + carry
@@ -21,20 +22,18 @@ class Solution:
                 carry = 1
             else:
                 carry = 0
-            l.append(n)
+            node = ListNode(n)
+            curr.next = node
+            curr = node
             if c1:
                 c1 = c1.next
             if c2:
                 c2 = c2.next
         
         if carry:
-            l.append(carry)
-        head = ListNode(l[0])
-        curr = head
-        for i in range(1, len(l)):
-            node = ListNode(l[i])
+            node = ListNode(carry)
             curr.next = node
-            curr = node
-        return head
+
+        return dummy.next
             
             
