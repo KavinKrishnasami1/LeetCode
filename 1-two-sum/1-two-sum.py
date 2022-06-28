@@ -5,3 +5,8 @@ class Solution:
             if nums[i] in new_dict:
                 return [new_dict[nums[i]], i]
             new_dict[target - nums[i]] = i
+            
+        
+            
+            
+        
