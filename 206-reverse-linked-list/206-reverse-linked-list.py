@@ -9,18 +9,15 @@ class Solution:
             return None
         
         curr = head
-        temp = curr.next
-        if not temp:
+        second = curr.next
+        curr.next = None
+        if second == None:
             return head
-        while temp.next:
-            hold = temp.next
-            temp.next = curr
-            curr = temp
-            temp = hold
-            
-        temp.next = curr
-        head.next = None
-        head = temp
-        return head
-            
-                        
+        
+        while second:
+            temp = second.next
+            second.next = curr
+            curr = second
+            second = temp
+        
+        return curr
