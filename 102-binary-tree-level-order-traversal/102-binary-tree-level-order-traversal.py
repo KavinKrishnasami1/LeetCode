@@ -19,5 +19,5 @@ class Solution:
                     queue.append(node.right)
             if level:
                 output.append(level)
-        
         return output
+            
