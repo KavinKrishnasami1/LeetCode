@@ -13,7 +13,7 @@ class RandomizedSet:
         return False
 
     def remove(self, val: int) -> bool:
-        if val in self.list:
+        if val in self.dict:
             last = self.list[-1]
             idx = self.dict[val]
             self.list[idx] = last
